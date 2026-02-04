@@ -65,6 +65,7 @@ public partial class EditorMenuSceneBuilder
     private static void AddClassHeader(StringBuilder result)
     {
         result.Append(@"using UnityEditor;
+                using UnityEditor.SceneManagement;
                 public partial class EditorMenuSceneBuilder
                 {");
     }
