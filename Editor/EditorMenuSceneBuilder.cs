@@ -18,6 +18,7 @@ public partial class EditorMenuSceneBuilder
         StringBuilder result = new StringBuilder();
         string basePath = Application.dataPath + PATH_TO_SCENES_FOLDER;
         AddClassHeader(result);
+        AddOpenSceneMethod(result);
         AddCodeForDirectory(new DirectoryInfo(basePath), result);
         AddClassFooter(result);
 
@@ -68,14 +69,18 @@ public partial class EditorMenuSceneBuilder
                 {");
     }
 
+    private static void AddOpenSceneMethod(StringBuilder result)
+    {
+        result.Append(@"
+        private static void OpenScene(string scenePath)
+        {
+            if (EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo())
+                EditorSceneManager.OpenScene(scenePath, OpenSceneMode.Single);
+        }");
+    }
+
     private static void AddClassFooter(StringBuilder result)
     {
         result.Append("}");
-    }
-
-    private static void OpenScene(string scenePath)
-    {
-        if (EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo())
-            EditorSceneManager.OpenScene(scenePath, OpenSceneMode.Single);
     }
 }
