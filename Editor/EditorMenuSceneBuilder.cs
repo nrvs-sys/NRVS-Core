@@ -10,7 +10,7 @@ public partial class EditorMenuSceneBuilder
     private const string ASSETS_SCENE_PATH = "Assets/_Project/Scenes/";
 
     private const string PATH_TO_SCENES_FOLDER = "/_Project/Scenes/";
-    private const string PATH_TO_OUTPUT_SCRIPT_FILE = "/_Project/Scripts/NRVS/Utilities/Editor/Generated/EditorMenuSceneBuilder.cs";
+    private const string PATH_TO_OUTPUT_SCRIPT_FILE = "/NRVS/Editor/Generated/EditorMenuSceneBuilder.cs";
 
     [MenuItem("Utilities/Generate Scene Load Menu Code", priority = 25)]
     public static void GenerateSceneLoadMenuCode()
