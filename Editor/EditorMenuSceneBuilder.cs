@@ -21,6 +21,13 @@ public partial class EditorMenuSceneBuilder
         AddCodeForDirectory(new DirectoryInfo(basePath), result);
         AddClassFooter(result);
 
+        // Ensure directory exists
+        string outputDirectory = Path.GetDirectoryName(Application.dataPath + PATH_TO_OUTPUT_SCRIPT_FILE);
+        if (!Directory.Exists(outputDirectory))
+        {
+            Directory.CreateDirectory(outputDirectory);
+        }
+
         string scriptPath = Application.dataPath + PATH_TO_OUTPUT_SCRIPT_FILE;
         File.WriteAllText(scriptPath, result.ToString());
 
